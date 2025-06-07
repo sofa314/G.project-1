@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="checkupSelection">Checkup Selection</title>
+    <link rel="icon" href="image/favicon/to-do-list.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/checkups.css">
+</head>
+<body>
+    <div class="checkup-container" id="checkup-container" style="position:relative;">
+        <button type="button" class="checkup-btn" style="position:absolute; top:1.2rem; left:1.2rem; margin-bottom:0;" onclick="window.location.href='index.html'" data-i18n="back">Back</button>
+        <div class="checkup-title" data-i18n="chooseYourCheckup">Choose Your Checkup</div>
+        <div class="checkup-list row justify-content-center">
+            <div class="checkup-card col-sm-10 col-md-6 col-lg-4 mb-4" id="heart-card">
+                <div class="checkup-icon icon-heart"><i class="fa-solid fa-heart-pulse"></i></div>
+                <div class="checkup-name" data-i18n="heartCheckup">Heart Checkup</div>
+                <div class="checkup-desc" data-i18n="heartCheckupDesc">Assess your heart health with our quick and easy checkup.</div>
+                <button class="checkup-btn" onclick="showForm('heart')" data-i18n="startCheckup">Start Checkup</button>
+            </div>
+            <div class="checkup-card col-sm-10 col-md-6 col-lg-4 mb-4" id="breast-card">
+                <div class="checkup-icon icon-breast"><i class="fa-solid fa-ribbon"></i></div>
+                <div class="checkup-name" data-i18n="breastCheckup">Breast Checkup</div>
+                <div class="checkup-desc" data-i18n="breastCheckupDesc">Early detection is key. Begin your breast health checkup now.</div>
+                <button class="checkup-btn breast" onclick="showForm('breast')" data-i18n="startCheckup">Start Checkup</button>
+            </div>
+            <div class="checkup-card col-sm-10 col-md-6 col-lg-4 mb-4" id="skin-card">
+                <div class="checkup-icon icon-skin"><i class="fa-solid fa-person"></i></div>
+                <div class="checkup-name" data-i18n="skinCheckup">Skin Checkup</div>
+                <div class="checkup-desc" data-i18n="skinCheckupDesc">Monitor your skin for signs of cancer and other conditions.</div>
+                <button class="checkup-btn skin" onclick="showForm('skin')" data-i18n="startCheckup">Start Checkup</button>
+            </div>
+        </div>
+    </div>
+    <!-- Fullscreen form overlays -->
+    <div class="form-overlay" id="heart-overlay" style="display:none;">
+        <form id="heart-form">
+            <button type="button" class="back-btn btn btn-secondary" onclick="hideForm()" data-i18n="back">Back</button>
+            <div class="checkup-icon icon-heart" style="margin-bottom:1rem;"><i class="fa-solid fa-heart-pulse"></i></div>
+            <div class="checkup-name" data-i18n="heartCheckup">Heart Checkup</div>
+            <div class="form-group"><label for="heart-age" data-i18n="ageLabel">Age</label><input id="heart-age" type="number" name="age" min="1" max="120" required placeholder="Age" class="form-control"></div>
+            <div class="form-group"><label for="heart-sex" data-i18n="sexLabel">Sex</label><select id="heart-sex" name="sex" required class="form-select"><option value="" data-i18n="selectOption">Select</option><option value="1" data-i18n="male">Male</option><option value="0" data-i18n="female">Female</option></select></div>
+            <div class="form-group"><label for="heart-cp" data-i18n="chestPainTypeLabel">Chest Pain Type (cp)</label><select id="heart-cp" name="cp" required class="form-select"><option value="" data-i18n="selectOption">Select</option><option value="1" data-i18n="typicalAngina">Typical angina (chest pain related to heart)</option><option value="2" data-i18n="atypicalAngina">Atypical angina (non-heart-related chest pain)</option><option value="3" data-i18n="nonAnginalPain">Non-anginal pain (non-cardiac origin)</option><option value="4" data-i18n="asymptomatic">Asymptomatic (no symptoms)</option></select></div>
+            <div class="form-group"><label for="heart-trestbps" data-i18n="restingBPLabel">Resting Blood Pressure (trestbps)</label><input id="heart-trestbps" type="number" name="trestbps" min="90" max="200" required placeholder="Resting BP (mm Hg)" class="form-control"></div>
+            <div class="form-group"><label for="heart-chol" data-i18n="cholesterolLabel">Cholesterol (chol)</label><input id="heart-chol" type="number" name="chol" min="100" max="600" required placeholder="Cholesterol (mg/dl)" class="form-control"></div>
+            <div class="form-group"><label for="heart-fbs" data-i18n="fastingBSLabel">Fasting Blood Sugar (fbs)</label><input id="heart-fbs" type="number" name="fbs" required placeholder="Enter blood sugar (mg/dl)" class="form-control"></div>
+            <div class="form-group"><label for="heart-restecg" data-i18n="restingECGLabel">Resting ECG (restecg)</label><input id="heart-restecg" type="number" name="restecg" min="0" max="2" required placeholder="Resting ECG (0-2, 0=normal)" class="form-control"></div>
+            <div class="form-group"><label for="heart-thalach" data-i18n="maxHRLabel">Max Heart Rate (thalach)</label><input id="heart-thalach" type="number" name="thalach" min="60" max="220" required placeholder="Max Heart Rate (bpm)" class="form-control"></div>
+            <div class="form-group"><label for="heart-exang" data-i18n="exerciseAnginaLabel">Exercise Induced Angina (exang)</label><select id="heart-exang" name="exang" required class="form-select"><option value="" data-i18n="selectOption">Select</option><option value="1" data-i18n="yes">Yes</option><option value="0" data-i18n="no">No</option></select></div>
+            <div class="form-group"><label for="heart-oldpeak" data-i18n="oldpeakLabel">Oldpeak (ST depression)</label><input id="heart-oldpeak" type="number" name="oldpeak" step="0.1" min="0" max="6.2" required placeholder="ST Depression (0-10)" class="form-control"></div>
+            <div class="form-group"><label for="heart-slope" data-i18n="slopeLabel">Slope of Peak Exercise ST Segment</label><select id="heart-slope" name="slope" required class="form-select"><option value="" data-i18n="selectOption">Select</option><option value="1" data-i18n="upsloping">Upsloping (better prognosis)</option><option value="2" data-i18n="flat">Flat</option><option value="3" data-i18n="downsloping">Downsloping (higher risk)</option></select></div>
+            <div class="form-group"><label for="heart-ca" data-i18n="majorVesselsLabel">Number of Major Vessels (ca)</label><input id="heart-ca" type="number" name="ca" min="0" max="3" required placeholder="Major Vessels (0-3)" class="form-control"></div>
+            <div class="form-group"><label for="heart-thal" data-i18n="thalLabel">Thal (Thallium Stress Test Result)</label><select id="heart-thal" name="thal" required class="form-select"><option value="" data-i18n="selectOption">Select</option><option value="0" data-i18n="normalBloodFlow">Normal blood flow</option><option value="1" data-i18n="fixedDefect">Fixed defect (permanent damage)</option><option value="2" data-i18n="reversibleDefect">Reversible defect (lack of blood flow under stress)</option></select></div>
+            <button type="submit" class="checkup-btn btn btn-primary" style="margin-top:0.5rem;" data-i18n="submit">Submit</button>
+            <div class="checkup-result" style="margin-top:1rem; color:#e36376; font-weight:600;"></div>
+        </form>
+    </div>
+
+    <!-- Breast Checkup -->
+    <div class="form-overlay" id="breast-overlay" style="display:none;">
+        <form id="breast-form">
+            <button type="button" class="back-btn btn btn-secondary" onclick="hideForm()" data-i18n="back">Back</button>
+            <div class="checkup-icon icon-breast" style="margin-bottom:1rem;"><i class="fa-solid fa-ribbon"></i></div>
+            <div class="checkup-name" data-i18n="breastCheckup">Breast Checkup</div>
+            <div class="form-group"><label for="breast-age" data-i18n="ageLabel">Age</label><input id="breast-age" type="number" name="age" min="1" max="120" required placeholder="Age" class="form-control"></div>
+            <div class="form-group"><label for="breast-clump" data-i18n="clumpThicknessLabel">Clump Thickness</label><input id="breast-clump" type="number" name="clump_thickness" min="1" max="10" required placeholder="Clump Thickness (1-10, cell density)" class="form-control"></div>
+            <div class="form-group"><label for="breast-cellsize" data-i18n="uniformityCellSizeLabel">Uniformity of Cell Size</label><input id="breast-cellsize" type="number" name="uniformity_cell_size" min="1" max="10" required placeholder="Cell Size Uniformity (1-10)" class="form-control"></div>
+            <div class="form-group"><label for="breast-cellshape" data-i18n="uniformityCellShapeLabel">Uniformity of Cell Shape</label><input id="breast-cellshape" type="number" name="uniformity_cell_shape" min="1" max="10" required placeholder="Cell Shape Uniformity (1-10)" class="form-control"></div>
+            <div class="form-group"><label for="breast-adhesion" data-i18n="marginalAdhesionLabel">Marginal Adhesion</label><input id="breast-adhesion" type="number" name="marginal_adhesion" min="1" max="10" required placeholder="Marginal Adhesion (1-10)" class="form-control"></div>
+            <div class="form-group"><label for="breast-epithelial" data-i18n="singleEpithelialCellSizeLabel">Single Epithelial Cell Size</label><input id="breast-epithelial" type="number" name="single_epithelial_cell_size" min="1" max="10" required placeholder="Epithelial Cell Size (1-10)" class="form-control"></div>
+            <div class="form-group"><label for="breast-nuclei" data-i18n="bareNucleiLabel">Bare Nuclei</label><input id="breast-nuclei" type="number" name="bare_nuclei" min="1" max="10" required placeholder="Bare Nuclei (1-10)" class="form-control"></div>
+            <div class="form-group"><label for="breast-chromatin" data-i18n="blandChromatinLabel">Bland Chromatin</label><input id="breast-chromatin" type="number" name="bland_chromatin" min="1" max="10" required placeholder="Bland Chromatin (1-10)" class="form-control"></div>
+            <div class="form-group"><label for="breast-nucleoli" data-i18n="normalNucleoliLabel">Normal Nucleoli</label><input id="breast-nucleoli" type="number" name="normal_nucleoli" min="1" max="10" required placeholder="Normal Nucleoli (1-10)" class="form-control"></div>
+            <div class="form-group"><label for="breast-mitoses" data-i18n="mitosesLabel">Mitoses</label><input id="breast-mitoses" type="number" name="mitoses" min="1" max="10" required placeholder="Mitoses (1-10, cell division)" class="form-control"></div>
+            <button type="submit" class="checkup-btn breast btn btn-primary" style="margin-top:0.5rem;" data-i18n="submit">Submit</button>
+            <div class="checkup-result" style="margin-top:1rem; color:#ff96a7; font-weight:600;"></div>
+        </form>
+    </div>
+
+    <!-- Skin Checkup -->
+    <div class="form-overlay" id="skin-overlay" style="display:none;">
+        <form id="skin-form">
+            <button type="button" class="back-btn btn btn-secondary" onclick="hideForm()" data-i18n="back">Back</button>
+            <div class="checkup-icon icon-skin" style="margin-bottom:1rem;"><i class="fa-solid fa-person"></i></div>
+            <div class="checkup-name" data-i18n="skinCheckup">Skin Checkup</div>
+            <div class="form-group"><label for="skin-age" data-i18n="ageLabel">Age</label><input id="skin-age" type="number" name="age" min="1" max="120" required placeholder="Age" class="form-control"></div>
+            <div class="form-group"><label for="skin-image" data-i18n="skinImageLabel">Upload a photo of skin area (for cancer check)</label><input id="skin-image" type="file" name="image" accept="image/*" required placeholder="Upload image (photo of skin area)" class="form-control"></div>
+            <button type="submit" class="checkup-btn skin btn btn-primary" style="margin-top:0.5rem;" data-i18n="submit">Submit</button>
+            <div class="checkup-result" style="margin-top:1rem; color:#4db6ac; font-weight:600;"></div>
+        </form>
+    </div>
+
+    <script src="js/translations.js"></script>
+    <script>
+    const ML_API_URL = "https://your-ml-api.up.railway.app";
+    const SKIN_API_URL = "https://your-skin-api.up.railway.app";
+
+    function showForm(type) {
+        // Hide main selection
+        document.getElementById('checkup-container').style.display = 'none';
+        // Hide all overlays
+        document.getElementById('heart-overlay').style.display = 'none';
+        document.getElementById('breast-overlay').style.display = 'none';
+        document.getElementById('skin-overlay').style.display = 'none';
+        // Clear all results
+        document.querySelectorAll('.checkup-result').forEach(r => r.textContent = '');
+        // Show the selected overlay
+        document.getElementById(type+'-overlay').style.display = 'flex';
+    }
+    function hideForm() {
+        // Hide all overlays
+        document.getElementById('heart-overlay').style.display = 'none';
+        document.getElementById('breast-overlay').style.display = 'none';
+        document.getElementById('skin-overlay').style.display = 'none';
+        // Show main selection
+        document.getElementById('checkup-container').style.display = 'flex';
+    }
+    // Heart form submit
+    document.getElementById('heart-form').onsubmit = async function(e) {
+        e.preventDefault();
+        // Collect form data
+        const formData = new FormData(this);
+
+        // Basic validation: Check if all required fields (for prediction) have values
+        const requiredFields = [
+            'age', 'sex', 'cp', 'trestbps', 'restecg', 
+            'thalach', 'exang', 'oldpeak', 'slope', 'ca', 'thal'
+        ];
+        let allFieldsFilled = true;
+        for (const fieldName of requiredFields) {
+            if (!formData.get(fieldName)) {
+                allFieldsFilled = false;
+                break;
+            }
+        }
+
+        if (!allFieldsFilled) {
+            this.querySelector('.checkup-result').textContent = 'Please fill in all required fields (*).'; // Indicate required fields
+            return; // Stop the submission
+        }
+
+        // Build features array with the required 11 features in the expected order
+        const features = [
+            Number(formData.get('age')),
+            Number(formData.get('sex')),
+            Number(formData.get('cp')),
+            Number(formData.get('trestbps')),
+            Number(formData.get('restecg')),
+            Number(formData.get('thalach')),
+            Number(formData.get('exang')),
+            Number(formData.get('oldpeak')),
+            Number(formData.get('slope')),
+            Number(formData.get('ca')),
+            Number(formData.get('thal'))
+        ];
+        try {
+            const response = await fetch(`${ML_API_URL}/predict-heart`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ features })
+            });
+            const result = await response.json();
+            this.querySelector('.checkup-result').textContent = result.prediction === 1 ? 'Heart Disease Detected' : 'No Heart Disease';
+        } catch (error) {
+            this.querySelector('.checkup-result').textContent = 'Error submitting form.';
+        }
+    };
+    // Breast form submit
+    document.getElementById('breast-form').onsubmit = async function(e) {
+        e.preventDefault();
+        const formData = new FormData(this);
+        // Build features object with keys matching backend expectations
+        const features = {
+            clump_thickness: Number(formData.get('clump_thickness')),
+            uniformity_cell_size: Number(formData.get('uniformity_cell_size')),
+            uniformity_cell_shape: Number(formData.get('uniformity_cell_shape')),
+            marginal_adhesion: Number(formData.get('marginal_adhesion')),
+            single_epithelial_cell_size: Number(formData.get('single_epithelial_cell_size')),
+            bare_nuclei: Number(formData.get('bare_nuclei')),
+            bland_chromatin: Number(formData.get('bland_chromatin')),
+            normal_nucleoli: Number(formData.get('normal_nucleoli')),
+            mitoses: Number(formData.get('mitoses'))
+        };
+        try {
+            const response = await fetch(`${ML_API_URL}/predict-breast`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(features)
+            });
+            const result = await response.json();
+            this.querySelector('.checkup-result').textContent = result.prediction === 'Malignant' ? 'Breast Cancer Detected' : 'No Breast Cancer';
+        } catch (error) {
+            this.querySelector('.checkup-result').textContent = 'Error submitting form.';
+        }
+    };
+    // Skin form submit
+    document.getElementById('skin-form').onsubmit = async function(e) {
+        e.preventDefault();
+        const formData = new FormData(this);
+        try {
+            const response = await fetch("https://your-skin-api.up.railway.app/predict-skin", {
+                method: 'POST',
+                body: formData
+            });
+            const result = await response.json();
+            if (result.predicted_class) {
+                this.querySelector('.checkup-result').innerHTML = `<b>Prediction:</b> ${result.predicted_class}<br><b>Confidence:</b> ${(result.confidence * 100).toFixed(2)}%`;
+            } else if (result.error) {
+                this.querySelector('.checkup-result').textContent = 'Error: ' + result.error;
+            } else {
+                this.querySelector('.checkup-result').textContent = 'Submitted!';
+            }
+        } catch (error) {
+            this.querySelector('.checkup-result').textContent = 'Error submitting form.';
+        }
+    };
+    </script>
+</body>
+</html>
