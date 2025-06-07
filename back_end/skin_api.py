@@ -36,11 +36,6 @@ def predict_skin():
         'confidence': float(np.max(prediction))
     })
 
-@app.after_request
-def after_request(response):
-    response.headers.add('Access-Control-Allow-Origin', '*')
-    return response
-
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5001))
     app.run(host='0.0.0.0', port=port, debug=True)
