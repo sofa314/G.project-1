@@ -7,7 +7,7 @@ import numpy as np
 from PIL import Image
 
 app = Flask(__name__)
-CORS(app, origins=["https://sofa314.github.io"])
+CORS(app, origins=["https://sofa314.github.io"], supports_credentials=True)  # Only allow this origin
 
 # Use absolute path for model loading
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
