@@ -1,0 +1,6 @@
+For ml.py sever
+. .venv/bin/activate && python back_end/ml_api.py
+
+
+For skin.server
+python back_end/skin_api.py 

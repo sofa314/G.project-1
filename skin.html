@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="image/favicon/skin-cancer.png">
+    <title>Skin Cancer</title>
+    <!-- CSS File -->
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/heart.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Bootstrap CSS -->
+    <link href="bootstrap-5.3.6-dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Start Header -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-lg ">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center logo" href="index.html">
+                    <i class="fa-solid fa-person me-2 fa-xl" style="color: #d85970;"></i>
+                    <span data-i18n="skinCancer">Skin Cancer</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 nav-links">
+                        <li class="nav-item"><a href="index.html" class="nav-link" data-i18n="home">Home</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle active" href="#" id="healthCareDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Health Care</a>
+                            <ul class="dropdown-menu" aria-labelledby="healthCareDropdown">
+                                <li><a class="dropdown-item" href="heart.html" data-i18n="heartDisease">Heart Disease</a></li>
+                                <li><a class="dropdown-item" href="brest.html" data-i18n="breastCancer">Breast Cancer</a></li>
+                                <li><a class="dropdown-item" href="skin.html" data-i18n="skinCancer">Skin Cancer</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="d-flex align-items-center ms-lg-3 nav-right">
+                        <div class="language-switcher me-2">
+                            <button class="lang-toggle-btn btn btn-outline-secondary">
+                                <div class="flag-wrapper en active">
+                                    <img src="image/flags/egypt.png" alt="Arabic" class="flag-icon" data-lang="ar">
+                                    <span class="flag-name" data-i18n="arabic">عربي</span>
+                                </div>
+                                <div class="flag-wrapper ar">
+                                    <img src="image/flags/uk.png" alt="English" class="flag-icon" data-lang="en">
+                                    <span class="flag-name" data-i18n="english">English</span>
+                                </div>
+                            </button>
+                        </div>
+                         <div class="sign-in-btn">
+                            <button id="openLoginPopup" class="signin-link btn btn-primary">
+                                <i class="fas fa-user"></i> 
+                                <span data-i18n="signIn">Log in</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Start Main Section -->
+    <section class="main-content">
+        <div class="container">
+            <div class="row heart-info">
+                <div class="col-12 col-md-6 text-content">
+                    <h2 data-i18n="skinTitle">Understanding Skin Cancer</h2>
+                    <p data-i18n="skinIntro">Skin cancer is the abnormal growth of skin cells, most often developing on skin exposed to the sun. Early detection and treatment are crucial for a positive outcome.</p>
+                    <p data-i18n="skinDescription">Protecting your skin from excessive sun exposure and monitoring for unusual changes are key to prevention and early diagnosis.</p>
+                    <ul class="heart-facts">
+                        <li data-i18n="mostCommonCancer">Most common type of cancer worldwide</li>
+                        <li data-i18n="uvExposure">Linked to UV exposure from sun or tanning beds</li>
+                        <li data-i18n="earlyDetection">Early detection greatly improves prognosis</li>
+                        <li data-i18n="allSkinTypes">Can affect all skin types and ages</li>
+                    </ul>
+                </div>
+                <div class="col-12 col-md-6 image-gallery">
+                    <img src="image/skin/skin-cancer-overview.webp" alt="Skin Cancer Awareness" data-i18n-alt="skinCancerAwarenessAlt" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Main Section -->
+
+    <!-- Symptoms Section -->
+    <section class="symptoms-content" style="display: none;">
+        <div class="container">
+            <div class="row heart-info">
+                <div class="col-12 col-md-6 text-content">
+                    <h2 data-i18n="skinSymptoms">Skin Cancer Symptoms</h2>
+                    <p data-i18n="skinCommonSymptoms">Common symptoms of skin cancer include:</p>
+                    <ul class="symptoms-list">
+                        <li><i class="fa-solid fa-circle-exclamation"></i> <span data-i18n="newGrowth">A new growth or sore that doesn't heal</span></li>
+                        <li><i class="fa-solid fa-circle-exclamation"></i> <span data-i18n="changingMole">A mole or spot that changes in size, shape, or color</span></li>
+                        <li><i class="fa-solid fa-circle-exclamation"></i> <span data-i18n="irregularBorders">Irregular, ragged, or blurred borders on a mole</span></li>
+                        <li><i class="fa-solid fa-circle-exclamation"></i> <span data-i18n="itchingBleeding">Itching, tenderness, or bleeding on the skin</span></li>
+                        <li><i class="fa-solid fa-circle-exclamation"></i> <span data-i18n="asymmetry">Asymmetry in a mole or spot</span></li>
+                    </ul>
+                    <div class="warning-box">
+                        <p><strong data-i18n="warning">Warning:</strong> <span data-i18n="skinWarningMessage">If you notice any suspicious changes in your skin, consult a healthcare provider promptly.</span></p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 image-gallery">
+                    <img src="image/skin/symo.jpg" alt="Skin Cancer Symptoms" data-i18n-alt="skinCancerSymptomsAlt" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prevention Section -->
+    <section class="prevention-content" style="display: none;">
+        <div class="container">
+            <div class="row heart-info">
+                <div class="col-12 col-md-6 text-content">
+                    <h2 data-i18n="skinPreventionTitle">Skin Cancer Prevention</h2>
+                    <p data-i18n="skinPreventionDesc">You can reduce your risk of skin cancer by following these prevention strategies:</p>
+                    <ul class="prevention-list">
+                        <li><i class="fa-solid fa-sun"></i> <span data-i18n="useSunscreen">Use broad-spectrum sunscreen daily</span></li>
+                        <li><i class="fa-solid fa-hat-cowboy"></i> <span data-i18n="protectiveClothing">Wear protective clothing and hats</span></li>
+                        <li><i class="fa-solid fa-shade"></i> <span data-i18n="seekShade">Seek shade during peak sun hours</span></li>
+                        <li><i class="fa-solid fa-ban-smoking"></i> <span data-i18n="avoidTanningBeds">Avoid tanning beds</span></li>
+                        <li><i class="fa-solid fa-magnifying-glass"></i> <span data-i18n="regularSkinChecks">Perform regular skin self-exams</span></li>
+                    </ul>
+                    <div class="info-box">
+                        <p><strong data-i18n="tip">Tip:</strong> <span data-i18n="skinPreventionTip">See a dermatologist annually for a professional skin check.</span></p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 image-gallery">
+                    <img src="image/skin/prev.png" alt="Skin Cancer Prevention" data-i18n-alt="skinCancerPreventionAlt" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Treatment Section -->
+    <section class="treatment-content" style="display: none;">
+        <div class="container">
+            <div class="row heart-info">
+                <div class="col-12 col-md-6 text-content">
+                    <h2 data-i18n="skinTreatmentTitle">Skin Cancer Treatment</h2>
+                    <p data-i18n="skinTreatmentDesc">Treatment depends on the type and stage of skin cancer. Common approaches include:</p>
+                    <ul class="treatment-list">
+                        <li><i class="fa-solid fa-syringe"></i> <span data-i18n="surgery">Surgical removal of the cancerous tissue</span></li>
+                        <li><i class="fa-solid fa-radiation"></i> <span data-i18n="radiation">Radiation therapy</span></li>
+                        <li><i class="fa-solid fa-pills"></i> <span data-i18n="medications">Topical or oral medications</span></li>
+                        <li><i class="fa-solid fa-user-doctor"></i> <span data-i18n="regularMonitoring">Regular follow-up and skin checks</span></li>
+                    </ul>
+                    <div class="treatment-box">
+                        <p><strong data-i18n="important">Important:</strong> <span data-i18n="skinTreatmentNote">Early treatment is highly effective. Always follow your healthcare provider's advice.</span></p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 image-gallery">
+                    <img src="image/skin/treat.jpg" alt="Skin Cancer Treatment" data-i18n-alt="skinCancerTreatmentAlt" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Start Aside -->
+    <div class="aside" id="sidebar">
+        <div class="sidebar">
+            <h3 data-i18n="overview">Overview</h3>
+            <ul>
+                <li><a href="#home" class="home-link" data-i18n="home">Home</a></li>
+                <li><a href="#symptoms" data-i18n="symptoms">Symptoms</a></li>
+                <li><a href="#prevention" data-i18n="prevention">Prevention</a></li>
+                <li><a href="#treatment" data-i18n="treatment">Treatment</a></li>
+            </ul>
+
+            <h3 data-i18n="welcome">Welcome</h3>
+            <p data-i18n="skinWelcomeMessage">Welcome to our skin health information center. Here you'll find valuable resources about skin cancer awareness and prevention.</p>
+
+            <h3 data-i18n="didYouKnow">Did You Know?</h3>
+            <p data-i18n="skinAwarenessFact">Skin cancer is highly preventable with proper sun protection and regular skin checks.</p>
+        </div>
+    </div>
+    <!-- End Aside -->
+
+    <!-- Update Script -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const mainContent = document.querySelector('.main-content');
+        const symptomsContent = document.querySelector('.symptoms-content');
+        const preventionContent = document.querySelector('.prevention-content');
+        const treatmentContent = document.querySelector('.treatment-content');
+        const menuIcon = document.querySelector('.menu-icon');
+        const sidebar = document.getElementById('sidebar');
+        const navbarToggler = document.querySelector('.navbar-toggler');
+
+        function hideAllSections() {
+            mainContent.style.display = 'none';
+            symptomsContent.style.display = 'none';
+            preventionContent.style.display = 'none';
+            treatmentContent.style.display = 'none';
+        }
+
+        // Handle window resize
+        function handleResize() {
+            if (window.innerWidth > 768) {
+                sidebar.classList.remove('hidden');
+                sidebar.style.display = 'block';
+            } else {
+                sidebar.classList.add('hidden');
+            }
+        }
+
+        // Initial check
+        handleResize();
+
+        // Listen for window resize
+        window.addEventListener('resize', handleResize);
+
+        // Toggle sidebar on Bootstrap navbar toggler click (mobile only)
+        if (navbarToggler) {
+            navbarToggler.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768) {
+                    e.stopPropagation();
+                    sidebar.classList.toggle('hidden');
+                }
+            });
+        }
+
+        // Hide sidebar when clicking outside (mobile only)
+        document.addEventListener('click', function(event) {
+            if (window.innerWidth <= 768 && 
+                !sidebar.contains(event.target) && 
+                !navbarToggler.contains(event.target)) {
+                sidebar.classList.add('hidden');
+            }
+        });
+
+        // Prevent clicks inside sidebar from closing it
+        sidebar.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+
+        // Handle navigation clicks
+        const links = sidebar.querySelectorAll('a');
+        links.forEach(link => {
+            link.addEventListener('click', function() {
+                if (window.innerWidth <= 768) {
+                    sidebar.classList.add('hidden');
+                }
+            });
+        });
+
+        // Content handlers remain the same
+        const homeLink = document.querySelector('.home-link');
+        homeLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            hideAllSections();
+            mainContent.style.display = 'block';
+        });
+
+        const symptomsLink = document.querySelector('a[href="#symptoms"]');
+        symptomsLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            hideAllSections();
+            symptomsContent.style.display = 'block';
+        });
+
+        const preventionLink = document.querySelector('a[href="#prevention"]');
+        preventionLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            hideAllSections();
+            preventionContent.style.display = 'block';
+        });
+
+        const treatmentLink = document.querySelector('a[href="#treatment"]');
+        treatmentLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            hideAllSections();
+            treatmentContent.style.display = 'block';
+        });
+    });
+    </script>
+
+    <!-- Add before closing body tag -->
+    <script src="js/translations.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const langButton = document.querySelector('.lang-toggle-btn');
+            const flagWrappers = document.querySelectorAll('.flag-wrapper');
+            const htmlElement = document.documentElement;
+            
+            // Set initial language
+            const savedLang = localStorage.getItem('language') || 'en';
+            updateLanguage(savedLang);
+            
+            langButton.addEventListener('click', function() {
+                const currentLang = htmlElement.lang;
+                const newLang = currentLang === 'en' ? 'ar' : 'en';
+                updateLanguage(newLang);
+                localStorage.setItem('language', newLang);
+                
+                // Update button aria-label
+                const newLabel = newLang === 'en' ? 'Switch to Arabic' : 'Switch to English';
+                this.setAttribute('aria-label', newLabel);
+            });
+            
+            function updateLanguage(lang) {
+                // Update active flag wrapper
+                flagWrappers.forEach(wrapper => {
+                    if (wrapper.classList.contains(lang)) {
+                        wrapper.classList.add('active');
+                        wrapper.style.display = 'flex';
+                    } else {
+                        wrapper.classList.remove('active');
+                        wrapper.style.display = 'none';
+                    }
+                });
+                
+                // Set document direction and language
+                htmlElement.lang = lang;
+                htmlElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+                
+                // Update all translations
+                document.querySelectorAll('[data-i18n]').forEach(element => {
+                    const key = element.dataset.i18n;
+                    if (translations[lang] && translations[lang][key]) {
+                        if (element.tagName === 'INPUT') {
+                            if (element.type === 'text' || element.type === 'number') {
+                                element.placeholder = translations[lang][key];
+                            }
+                        } else {
+                            element.textContent = translations[lang][key];
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+    <!-- Add Bootstrap JS Bundle (with Popper) -->
+    <script src="bootstrap-5.3.6-dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 

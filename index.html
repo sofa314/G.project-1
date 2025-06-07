@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="image/favicon/hospital-building.png">
+    <title> Health Center</title>
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/index.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="bootstrap-5.3.6-dist/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="bootstrap-5.3.6-dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    
+    <!-- =================== HEADER SECTION START =================== -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-lg ">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center logo" href="index.html">
+                    <i class="fa-solid fa-hospital me-2 fa-xl" style="color: #e36376"></i>
+                    <span>Disease Prediction</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 nav-links">
+                        <li class="nav-item"><a href="#" class="nav-link active" data-i18n="home">Home</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="healthCareDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-i18n="healthCareDropdownTitle">Health Care</a>
+                            <ul class="dropdown-menu" aria-labelledby="healthCareDropdown">
+                                <li><a class="dropdown-item" href="heart.html" data-i18n="heartDisease">Heart Disease</a></li>
+                                <li><a class="dropdown-item" href="brest.html" data-i18n="breastCancer">Breast Cancer</a></li>
+                                <li><a class="dropdown-item" href="skin.html" data-i18n="skinCancer">Skin Cancer</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item logged-in-only"><a href="checkup_list.html" id="checkUpsNavLink" class="nav-link" data-i18n="checkUps">Check Ups</a></li>
+                    </ul>
+                    <div class="d-flex align-items-center ms-lg-3 nav-right">
+                        <div class="language-switcher me-2">
+                            <button class="lang-toggle-btn btn btn-outline-secondary">
+                                <div class="flag-wrapper en active">
+                                    <img src="image/flags/egypt.png" alt="Arabic" class="flag-icon" data-lang="ar">
+                                    <span class="flag-name" data-i18n="arabic">عربي</span>
+                                </div>
+                                <div class="flag-wrapper ar">
+                                    <img src="image/flags/uk.png" alt="English" class="flag-icon" data-lang="en">
+                                    <span class="flag-name" data-i18n="english">English</span>
+                                </div>
+                            </button>
+                        </div>
+                        <div class="sign-in-btn">
+                            <a href="/Login_page/login.html" id="openLoginPopup" class="signin-link btn btn-primary">
+                                <i class="fas fa-user"></i> 
+                                <span data-i18n="signIn">Log in</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- =================== HEADER SECTION END =================== -->
+
+    <!-- =================== LOGIN POPUP START =================== -->
+    <!-- Removed Login Popup HTML -->
+    <!-- =================== LOGIN POPUP END =================== -->
+
+    <!-- =================== HERO SECTION START =================== -->
+    <section class="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="hero-content">
+                        <h1 data-i18n="heroTitle">Your Physical Health Matters</h1>
+                        <p data-i18n="heroDescription">Expert care and guidance for a healthier life. Learn about prevention, treatment, and maintaining overall well-being.</p>
+                        <div class="cta-buttons">
+                            <a href="https://www.mohp.gov.eg/Articles.aspx?csrt=10636529643083843988" class="primary-btn" data-i18n="learnMore">Learn More</a>
+                            <a href="#appointment" class="secondary-btn" data-i18n="bookAppointment">Book Appointment</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="hero-image">
+                        <img src="image/main1010.png" alt="Health Illustration" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- =================== HERO SECTION END =================== -->
+
+    <!-- =================== DISEASE PREDICTION SECTION START =================== -->
+    <section class="prediction">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="prediction-content">
+                        <h2 data-i18n="diseasePrediction">Disease Prediction</h2>
+                        <p data-i18n="predictionDesc">Using advanced AI and machine learning algorithms, we can help assess your risk of various diseases based on your health factors and symptoms.</p>
+                        <ul class="prediction-features">
+                            <li><i class="fa-solid fa-chart-line fa-lg"></i> <span data-i18n="riskAssessment">Comprehensive Risk Assessment</span></li>
+                            <li><i class="fa-solid fa-brain fa-lg"></i> <span data-i18n="aiAnalysis">AI-Powered Analysis</span></li>
+                            <li><i class="fa-solid fa-person fa-lg"></i> <span data-i18n="multiDisease">Multi-Disease Detection</span></li>
+                            <li><i class="fa-solid fa-notes-medical fa-lg"></i> <span data-i18n="healthReports">Detailed Health Reports</span></li>
+                        </ul>
+                        <a href="/prediction" class="predict-btn" data-i18n="tryPrediction">Try Prediction Tool</a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="prediction-visual">
+                        <div class="prediction-card">
+                            <h3 data-i18n="keyFactors">Key Health Factors We Analyze</h3>
+                            <div class="factor-grid row">
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="factor col-sm-6 col-md-6 col-lg-6" data-factor="heart">
+                                            <div class="card-inner">
+                                                <div class="card-front">
+                                                    <i class="fa-solid fa-heart-pulse fa-xl" style="color: #e36376;"></i>
+                                                    <hr>
+                                                    <span data-i18n="heartHealth">Heart Health</span>
+                                                </div>
+                                                <div class="card-back">
+                                                    <span class="factor-desc" data-i18n="heartSymptom">Feeling of pressure or pain in the chest</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="factor col-sm-6 col-md-6 col-lg-6" data-factor="breast">
+                                            <div class="card-inner">
+                                                <div class="card-front">
+                                                    <i class="fa-solid fa-ribbon fa-xl" style="color: #e36376;"></i>
+                                                    <hr>
+                                                    <span data-i18n="cancerRisk">Breast Cancer</span>
+                                                </div>
+                                                <div class="card-back">
+                                                    <span class="factor-desc" data-i18n="breastSymptom">A painless, hard lump in the breast or underarm</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="factor col-sm-6 col-md-6 col-lg-6" data-factor="skin">
+                                            <div class="card-inner">
+                                                <div class="card-front">
+                                                    <i class="fa-solid fa-person fa-xl" style="color: #e36376;"></i>
+                                                    <hr>
+                                                    <span data-i18n="skinCancer">Skin Cancer</span>
+                                                </div>
+                                                <div class="card-back">
+                                                    <span class="factor-desc" data-i18n="skinSymptom">Mole that changes in shape, size, or color</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="factor col-sm-6 col-md-6 col-lg-6" data-factor="vital">
+                                            <div class="card-inner">
+                                                <div class="card-front">
+                                                    <i class="fa-solid fa-question fa-xl" style="color: #e36376;"></i>
+                                                    <hr>
+                                                    <span data-i18n="vitalSigns">Coming Soon</span>
+                                                </div>
+                                                <div class="card-back">
+                                                    <span data-i18n="analyzingVitals">Loading...</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- =================== DISEASE PREDICTION SECTION END =================== -->
+
+    <!-- =================== FEATURES SECTION START =================== -->
+    <section class="features">
+        <div class="container">
+            <h2 class="text-center mb-5" data-i18n="ourServices">Our Services</h2>
+            <div class="d-flex justify-content-center">
+                <div class="features-grid row justify-content-center flex-lg-nowrap gx-lg-5" style="max-width: 1200px;">
+                    <div class="feature-card col-12 col-sm-6 col-md-6 col-lg-3 mb-4">
+                        <i class="fa-solid fa-stethoscope fa-2xl" style="color: #e36376; padding-bottom: 15px"></i>
+                        <h3 data-i18n="healthCheckup">Health Checkup</h3>
+                        <p data-i18n="healthCheckupDesc">Comprehensive health assessments and screenings.</p>
+                    </div>
+                    <div class="feature-card col-12 col-sm-6 col-md-6 col-lg-3 mb-4">
+                        <i class="fa-solid fa-chart-line fa-2xl" style="color: #e36376; padding-bottom: 15px"></i>
+                        <h3 data-i18n="diseasePredictionService">Disease Prediction</h3>
+                        <p data-i18n="diseasePredictionDesc">AI-powered prediction and risk assessment for various diseases.</p>
+                    </div>
+                    <div class="feature-card col-12 col-sm-6 col-md-6 col-lg-3 mb-4">
+                        <i class="fa-solid fa-user fa-2xl" style="color: #e36376; padding-bottom: 15px"></i>
+                        <h3 data-i18n="accountService">Account</h3>
+                        <p data-i18n="accountServiceDesc">Manage your personal health account and access your records.</p>
+                    </div>
+                    <div class="feature-card col-12 col-sm-6 col-md-6 col-lg-3 mb-4">
+                        <i class="fa-solid fa-kit-medical fa-2xl" style="color: #e36376; padding-bottom: 15px;"></i>
+                        <h3 data-i18n="emergencyCare">Emergency Care</h3>
+                        <p data-i18n="emergencyCareDesc">24/7 emergency cardiac care services.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- =================== FEATURES SECTION END =================== -->
+
+    <!-- =================== ABOUT SECTION START =================== -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="about-content">
+                        <h2 data-i18n="whyChooseUs">Why Choose Us</h2>
+                        <p data-i18n="aboutDesc">With years of experience in cardiovascular care, our team of specialists is dedicated to providing the best heart health services.</p>
+                        <ul class="benefits">
+                            <li><i class="fa-solid fa-check"></i> <span data-i18n="expertTeam">Expert Medical Team</span></li>
+                            <li><i class="fa-solid fa-check"></i> <span data-i18n="modernFacilities">Modern Facilities</span></li>
+                            <li><i class="fa-solid fa-check"></i> <span data-i18n="personalizedCare">Personalized Care</span></li>
+                            <li><i class="fa-solid fa-check"></i> <span data-i18n="latestTechnology">Latest Technology</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="about-image">
+                        <img src="image/group.jpg" alt="Medical Team" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- =================== ABOUT SECTION END =================== -->
+
+    <!-- =================== FOOTER SECTION START =================== -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>HeartCare</h3>
+                <p>Dedicated to your heart health and well-being.</p>
+            </div>
+            <div class="footer-section">
+                <h3 data-i18n="quickLinks">Quick Links</h3>
+                <ul>
+                    <li><a href="#home" data-i18n="home">Home</a></li>
+                    <li><a href="#services" data-i18n="ourServices">Services</a></li>
+                    <li><a href="#about" data-i18n="whyChooseUs">About</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3 data-i18n="connectWithUs">Connect With Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- =================== FOOTER SECTION END =================== -->
+
+    <!-- =================== SCRIPTS & STYLES START =================== -->
+    <script src="js/translations.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add click event listener for sign-in button
+            const signInBtn = document.getElementById('openLoginPopup');
+            if (signInBtn) {
+                signInBtn.addEventListener('click', function(e) {
+                    // e.preventDefault(); // Removed to allow direct link
+                    // openPopup(); // Removed as popup is no longer used
+                });
+            }
+
+            const langButton = document.querySelector('.lang-toggle-btn');
+            const flagWrappers = document.querySelectorAll('.flag-wrapper');
+            const htmlElement = document.documentElement;
+            
+            // Set initial language
+            const savedLang = localStorage.getItem('language') || 'en';
+            updateLanguage(savedLang);
+            
+            langButton.addEventListener('click', function() {
+                const currentLang = htmlElement.lang;
+                const newLang = currentLang === 'en' ? 'ar' : 'en';
+                updateLanguage(newLang);
+                localStorage.setItem('language', newLang);
+            });
+            
+            function updateLanguage(lang) {
+                // Update active flag wrapper
+                flagWrappers.forEach(wrapper => {
+                    if (wrapper.classList.contains(lang)) {
+                        wrapper.classList.add('active');
+                    } else {
+                        wrapper.classList.remove('active');
+                    }
+                });
+                
+                // Set document direction and language
+                htmlElement.lang = lang;
+                htmlElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+                
+                // Update all translations
+                document.querySelectorAll('[data-i18n]').forEach(element => {
+                    const key = element.dataset.i18n;
+                    if (translations[lang] && translations[lang][key]) {
+                        if (element.tagName === 'INPUT') {
+                            if (element.type === 'text' || element.type === 'number') {
+                                element.placeholder = translations[lang][key];
+                            }
+                        } else {
+                            element.textContent = translations[lang][key];
+                        }
+                    }
+                });
+            }
+
+            // Safety: Always hide dashboard sidebar on page load
+            var dashboardSidebar = document.getElementById('dashboardSidebar');
+            if (dashboardSidebar) {
+                dashboardSidebar.classList.remove('active');
+            }
+
+            document.querySelectorAll('.factor').forEach(factor => {
+                factor.addEventListener('click', function() {
+                    if (factor.classList.contains('flipped')) return;
+                    factor.classList.add('flipped');
+                    setTimeout(() => {
+                        factor.classList.remove('flipped');
+                    }, 3000); // 3 seconds
+                });
+            });
+        });
+
+        // --- DISABLED LOGIN CHECK ---
+        function checkLoginStatus() {
+            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+            const checkUpsNavItem = document.querySelector('.nav-item.logged-in-only');
+
+            if (checkUpsNavItem) {
+                if (isLoggedIn) {
+                    checkUpsNavItem.style.display = ''; // Show the item
+                } else {
+                    checkUpsNavItem.style.display = 'none'; // Hide the item
+                }
+            }
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            checkLoginStatus();
+
+            // Add listener for messages from the iframe (e.g., login success, logout)
+            window.addEventListener('message', function(event) {
+                console.log('Received message in index.html:', event.data);
+                if (event.data === 'loginSuccess' || event.data === 'logoutSuccess') {
+                    // Re-check login status when a relevant message is received
+                    checkLoginStatus();
+                    // Update sign-in button text based on login status
+                    const signInBtn = document.querySelector('.signin-link');
+                    if (signInBtn) {
+                        if (isLoggedIn) {
+                             signInBtn.innerHTML = '<i class="fas fa-user"></i> <span data-i18n="profile">Profile</span>';
+                        } else {
+                             signInBtn.innerHTML = '<i class="fas fa-user"></i> <span data-i18n="signIn">Log in</span>';
+                        }
+                    }
+                }
+            });
+             // Initial check on load for the sign-in button text
+             const signInBtn = document.querySelector('.signin-link');
+             const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+             if (signInBtn) {
+                 if (isLoggedIn) {
+                      signInBtn.innerHTML = '<i class="fas fa-user"></i> <span data-i18n="profile">Profile</span>';
+                 } else {
+                      signInBtn.innerHTML = '<i class="fas fa-user"></i> <span data-i18n="signIn">Log in</span>';
+                 }
+             }
+        });
+        // --- END DISABLED LOGIN CHECK ---
+
+        // Removed popup handling functions and iframe message listener
+        // function openPopup() { /* Removed */ }
+        // function closePopup() { /* Removed */ }
+        // window.addEventListener('message', function(event) { /* Removed */ });
+        // const loginPopup = document.getElementById('loginPopup'); /* Removed */
+        // if (loginPopup) { /* Removed */ }
+
+        // Check login status on page load - This remains, as it checks localStorage
+        document.addEventListener('DOMContentLoaded', function() {
+            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+            if (isLoggedIn) {
+                const signInBtn = document.querySelector('.signin-link');
+                if (signInBtn) {
+                    signInBtn.innerHTML = '<i class="fas fa-user"></i> <span data-i18n="profile">Profile</span>';
+                }
+            }
+        });
+    </script>
+    <!-- Bootstrap JS Bundle (with Popper) -->
+    <script src="bootstrap-5.3.6-dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Arrow to Top Button -->
+    <button id="toTopBtn" title="Go to top" aria-label="Go to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+    <script>
+    // Header hide on scroll and arrow to top logic
+    (function() {
+        const header = document.querySelector('header');
+        const toTopBtn = document.getElementById('toTopBtn');
+        let lastScrollY = window.scrollY;
+        let ticking = false;
+
+        function onScroll() {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    const currentScroll = window.scrollY;
+                    // Hide header on scroll down, show on scroll up
+                    if (currentScroll > lastScrollY && currentScroll > 100) {
+                        header.classList.add('header-hidden');
+                    } else {
+                        header.classList.remove('header-hidden');
+                    }
+                    // Show arrow if scrolled down
+                    if (currentScroll > 200) {
+                        toTopBtn.classList.add('show');
+                    } else {
+                        toTopBtn.classList.remove('show');
+                    }
+                    lastScrollY = currentScroll;
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }
+        window.addEventListener('scroll', onScroll);
+        toTopBtn.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    })();
+    </script>
+    <script src="bootstrap-5.3.6-dist/js/all.min.js"></script>
+</body>
+</html>

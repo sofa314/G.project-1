@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login / Sign Up - HealthCare</title>
+    <!-- Favicon -->
+    <link rel="icon" href="/image/favicon/hospital-building.png" type="image/png">
+    <!-- Bootstrap CSS -->
+    <link href="/bootstrap-5.3.6-dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Google Identity Services -->
+    <script>
+        // Declare a variable in the global scope to store the response
+        let googleCredentialResponse = null;
+
+        // Define the Google Identity Services callback function in the global scope
+        // The GSI script expects this function to be globally available.
+        function handleCredentialResponse(response) {
+            console.log("Encoded JWT ID token from HTML: " + response.credential);
+            googleCredentialResponse = response; // Store the response
+            // Directly call the processing function
+            if (typeof processGoogleLoginResponse === 'function') {
+                processGoogleLoginResponse(response);
+            } else {
+                console.error("processGoogleLoginResponse is not defined yet.");
+            }
+        }
+    </script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <style>
+        /* Initially hide the traditional login form */
+        #loginForm { display: none !important; }
+
+        /* Adjust card body padding if needed after removing form */
+        #loginSection .card-body {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+         /* Ensure Google button is centered and prominent */
+        #loginSection .d-grid.gap-2 {
+             margin-top: 0; /* Remove margin added for 'or' divider */
+        }
+    </style>
+</head>
+<body>
+    <div class="container d-flex justify-content-center align-items-center min-vh-100">
+        <div class="col-12 col-md-8 col-lg-5">
+            <!-- Login Form -->
+            <!-- The traditional email/password form is now hidden via CSS -->
+            <div id="loginSection" class="card shadow-lg">
+                <div class="card-body">
+                    <!-- Content for Google Sign-In -->
+                    <div class="text-center mb-4">
+                        <h1 class="h3 mb-1">Welcome to HealthCare</h1>
+                        <p class="text-muted">Sign in to your account</p>
+                    </div>
+                     <!-- Removed the traditional login form -->
+                    <!-- <form id="loginForm" action="/api/login" method="POST"> ... </form> -->
+
+                    <div class="d-grid gap-2">
+                         <!-- Google Sign-In Button - replace with Google's button or use One Tap -->
+                         <!-- Using a simple button for now, will add Google JS integration -->
+                         <!-- Google One Tap or other GSI elements can be placed here -->
+                         <!-- Example using data-attributes for automatic rendering -->
+                         <div id="g_id_onload"
+                             data-client_id="1079807273598-30ckhicnf0frv26r17q84putrh9946md.apps.googleusercontent.com"
+                             data-callback="handleCredentialResponse"
+                             data-auto_prompt="false">
+                         </div>
+
+                         <!-- Google Sign-In Button (Alternative using data-attributes) -->
+                         <div class="g_id_signin"
+                             data-type="standard"
+                             data-size="large"
+                             data-theme="outline"
+                             data-text="continue_with"
+                             data-shape="rectangular"
+                             data-logo_alignment="left"
+                             data-callback="handleCredentialResponse">
+                         </div>
+
+                    </div>
+                     <div class="text-center mt-3">
+                         <!-- Removed link to switch to signup from login -->
+                     </div>
+                </div>
+            </div>
+            <!-- Signup Form -->
+            <div id="signupSection" class="card shadow-lg" style="display: none;">
+                <div class="card-body">
+                    <div class="text-center mb-4">
+                        <h1 class="h3 mb-1">Create your account</h1>
+                        <p class="text-muted">Join HealthCare for better healthcare services</p>
+                    </div>
+                    <form id="signupForm">
+                        <div class="mb-3">
+                            <label for="signupName" class="form-label">Name</label>
+                            <input type="text" id="signupName" name="name" class="form-control" placeholder="Enter your name" required autocomplete="name">
+                            <div class="text-danger mt-1" id="signupNameError"></div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="signupEmail" class="form-label">Email</label>
+                            <input type="email" id="signupEmail" name="email" class="form-control" placeholder="Enter your email" required autocomplete="email">
+                            <div class="text-danger mt-1" id="signupEmailError"></div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="signupPassword" class="form-label">Password</label>
+                            <div class="input-group">
+                                <input type="password" id="signupPassword" name="password" class="form-control" placeholder="Create a password" required autocomplete="new-password">
+                                <button type="button" class="btn btn-outline-secondary" id="toggleSignupPassword">
+                                    <i class="fa-solid fa-eye"></i>
+                                </button>
+                            </div>
+                            <div class="text-danger mt-1" id="signupPasswordError"></div>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Create account</button>
+                        <div class="text-center mt-3">
+                            Already have an account? <a href="#" id="switchToLogin">Log in</a>
+                        </div>
+                    </form>
+                    <div class="divider d-flex align-items-center my-3">
+                        <p class="text-center mx-3 mb-0">or</p>
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button type="button" class="btn btn-outline-danger google-btn">
+                            <i class="fa-brands fa-google me-2"></i>
+                            <span>Continue with Google</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Forgot Password Form -->
+            <div id="forgotSection" class="card shadow-lg" style="display: none;">
+                <div class="card-body">
+                    <div class="text-center mb-4">
+                        <h1 class="h3 mb-1">Forgot Password</h1>
+                        <p class="text-muted">Enter your email to reset your password</p>
+                    </div>
+                    <form id="forgotPasswordForm">
+                        <div class="mb-3">
+                            <label for="forgotEmail" class="form-label">Email</label>
+                            <input type="email" id="forgotEmail" name="email" class="form-control" placeholder="Enter your email" required autocomplete="email">
+                            <div class="text-danger mt-1" id="forgotEmailError"></div>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Reset Password</button>
+                        <div class="text-center mt-3">
+                            Remember your password? <a href="#" id="switchToLoginFromForgot">Log in</a>
+                        </div>
+                    </form>
+                    <div class="divider d-flex align-items-center my-3">
+                        <p class="text-center mx-3 mb-0">or</p>
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button type="button" class="btn btn-outline-danger google-btn">
+                            <i class="fa-brands fa-google me-2"></i>
+                            <span>Continue with Google</span>
+                        </button>
+                    </div>
+                    <div class="text-success mt-3" id="forgotSuccessMsg" style="display:none;"></div>
+                </div>
+            </div>
+            <!-- Profile Section -->
+            <div id="profileSection" class="card shadow-lg" style="display: none;">
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-4">
+                        <div class="flex-shrink-0 me-3">
+                            <i class="fas fa-user fa-2x text-primary"></i>
+                        </div>
+                        <div class="flex-grow-1">
+                            <h2 class="h5 mb-0" id="userEmail">Loading...</h2>
+                            <p class="text-muted mb-0">Member since <span id="memberSince">Loading...</span></p>
+                        </div>
+                        <button class="btn btn-outline-secondary btn-sm" id="logoutBtn">
+                            <i class="fas fa-sign-out-alt me-1"></i> Logout
+                        </button>
+                    </div>
+                    <div>
+                        <h3 class="h6 mb-3">Checkup History</h3>
+                        <div id="historyList" class="list-group">
+                            <!-- History items will be added here dynamically -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="/bootstrap-5.3.6-dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Removed redundant script block - Logic moved to login.js -->
+    
+    <!-- Keep custom JS for now -->
+    <script src="login.js"></script>
+</body>
+</html>
