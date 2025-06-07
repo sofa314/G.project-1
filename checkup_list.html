@@ -94,6 +94,9 @@
 
     <script src="js/translations.js"></script>
     <script>
+    const ML_API_URL = "https://your-ml-api.up.railway.app";
+    const SKIN_API_URL = "https://your-skin-api.up.railway.app";
+
     function showForm(type) {
         // Hide main selection
         document.getElementById('checkup-container').style.display = 'none';
@@ -153,7 +156,7 @@
             Number(formData.get('thal'))
         ];
         try {
-            const response = await fetch('http://localhost:5002/predict-heart', {
+            const response = await fetch(`${ML_API_URL}/predict-heart`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ features })
@@ -181,7 +184,7 @@
             mitoses: Number(formData.get('mitoses'))
         };
         try {
-            const response = await fetch('http://localhost:5002/predict-breast', {
+            const response = await fetch(`${ML_API_URL}/predict-breast`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(features)
@@ -197,7 +200,7 @@
         e.preventDefault();
         const formData = new FormData(this);
         try {
-            const response = await fetch('http://localhost:5001/predict-skin', {
+            const response = await fetch(`${SKIN_API_URL}/predict-skin`, {
                 method: 'POST',
                 body: formData
             });
@@ -215,4 +218,4 @@
     };
     </script>
 </body>
-</html> 
+</html>
