@@ -6,7 +6,7 @@ from tensorflow.keras.preprocessing.image import img_to_array
 import numpy as np
 from PIL import Image
 
-CORS(app, origins=["https://sofa314.github.io/G.project-1"])  
+CORS(origins=["https://sofa314.github.io/G.project-1"])  
 
 # Use absolute path for model loading
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
