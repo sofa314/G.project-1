@@ -343,20 +343,20 @@
         });
 
         // --- DISABLED LOGIN CHECK ---
-        function checkLoginStatus() {
-            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-            const checkUpsNavItem = document.querySelector('.nav-item.logged-in-only');
+        // function checkLoginStatus() {
+        //     const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+        //     const checkUpsNavItem = document.querySelector('.nav-item.logged-in-only');
 
-            if (checkUpsNavItem) {
-                if (isLoggedIn) {
-                    checkUpsNavItem.style.display = ''; // Show the item
-                } else {
-                    checkUpsNavItem.style.display = 'none'; // Hide the item
-                }
-            }
-        }
-        document.addEventListener('DOMContentLoaded', function() {
-            checkLoginStatus();
+        //     if (checkUpsNavItem) {
+        //         if (isLoggedIn) {
+        //             checkUpsNavItem.style.display = ''; // Show the item
+        //         } else {
+        //             checkUpsNavItem.style.display = 'none'; // Hide the item
+        //         }
+        //     }
+        // }
+        // document.addEventListener('DOMContentLoaded', function() {
+        //     checkLoginStatus();
 
             // Add listener for messages from the iframe (e.g., login success, logout)
             window.addEventListener('message', function(event) {
